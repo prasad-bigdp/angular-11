@@ -1,0 +1,19 @@
+.movie img
+{
+    height: 100px;
+    width: 100px;
+}
+.movies{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 20px;
+}
+.movie
+{
+    box-shadow: 8px 8px 5px black;
+}
+.dark
+{
+    background-color: black;
+    color: white;
+}

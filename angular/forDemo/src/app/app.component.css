@@ -1,0 +1,16 @@
+.products
+{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 10px;
+}
+.product img
+{
+    height: 100px;
+    width: 100px;
+}
+.product
+{
+    box-shadow: 8px 8px 5px black;
+    padding: 50px;
+}

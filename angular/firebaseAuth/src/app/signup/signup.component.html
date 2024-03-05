@@ -1,0 +1,17 @@
+<p>signup works!</p>
+<form #fm="ngForm" (ngSubmit)="submit(em,pwd,fm)">
+    <input type="text" name="username" placeholder="Enter the name" ngModel #un="ngModel" required><br>
+    <div class="error" *ngIf="(fm.submitted||un.touched) && un.errors?.['required']">Username is required.please Enter
+    </div>
+    <br>
+    <input type="email" name="email" placeholder="Enter the email" ngModel #em="ngModel"
+        pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$" required><br>
+    <div class="error" *ngIf="(fm.submitted||em.touched) && em.errors?.['required']">Email required</div>
+    <div class="error" *ngIf="(fm.submitted||em.touched) && em.errors?.['pattern']">Please enter proper email</div><br>
+    <input type="password" name="password" placeholder="Enter the password" ngModel #pwd="ngModel" minlength="8"
+        required><br>
+    <div class="error" *ngIf="(fm.submitted||pwd.touched) && pwd.errors?.['required']">PassWord required</div>
+    <div class="error" *ngIf="(fm.submitted||pwd.touched) && pwd.errors?.['minlength']">Enter minimum 8 characters</div>
+    <br>
+    <button type="submit">click me</button>
+</form>

@@ -1,0 +1,57 @@
+lifecycle Methods:
+we all have our lifecycle-> toddler,child,teen,young,old.
+similarly components also have have life life cycle.
+when a component initiated or component rendered or component appearead in View or component got changed or component destroyed.
+Any component first calls its constructor because it's class but only one time
+
+DOM(document Object Model)==>contentDOM  vs ViewDOM
+contentDOM is exact HTML template before applying angular techniques
+eg:<div>My name is {{name}}</div>
+viewDOM:viewDOM is HTML template which appearead in browser after anular techniques applied
+
+
+
+
+1.ngOnChanges
+Trigger: Called whenever one or more of the component's input properties (@Input) change value. It is also called on the first change check, even if no input property has changed.
+Purpose: Detect and respond to changes to input properties, making updates within the component before the view is updated.
+Example: Reacting to changes passed from a parent component to update the child component's state.
+
+2. ngOnInit
+Trigger: Called only once, after the first ngOnChanges during a component's lifecycle.
+Purpose: Ideal for initialization logic that needs to be performed after the input properties are available. This is a good place to fetch data from a service or perform initial setup.
+Example: Calling an HTTP service to retrieve and initialize data for the component's display.
+
+3. ngDoCheck
+Trigger: Called for change detection during every cycle, right after ngOnChanges and ngOnInit. It's Angular's default change detection mechanism.
+Purpose: This is often used by developers to implement custom change-detection logic that may not fully rely on Angular's default mechanism. Be cautious here, as frequent use may lead to performance issues if not handled carefully.
+Example: Implementing complex change-detection logic when Angular's built-in mechanism isn't sufficient.
+
+4. ngAfterContentInit
+Trigger: Called only once, after the first ngDoCheck and after Angular has projected external content into the component's view (content passed through <ng-content> tags).
+Purpose: Access and initialize projected components or child components declared within the ng-content of the current component's template.
+Example: Gaining access to any child components passed into the parent component's template via <ng-content>.
+
+5. ngAfterContentChecked
+Trigger: Called after ngAfterContentInit and after every subsequent ngDoCheck.
+Purpose: Respond to changes that occur within the projected content components.
+Example: Reacting to actions performed inside projected (content) components.
+
+6. ngAfterViewInit
+Trigger: Called once after ngAfterContentChecked when Angular has fully initialized the component's view.
+Purpose: Access and interact directly with elements in the component's template (e.g., child components or elements obtained via @ViewChild).
+Example: Initializing third-party libraries that interact with the DOM elements rendered within the component's view.
+
+7. ngAfterViewChecked
+Trigger: Called after ngAfterViewInit and subsequent ngDoCheck checks.
+Purpose: Respond to changes within the component's view and its child views.
+Example: Reacting to changes in the DOM structure of the component's view.
+
+8. ngOnDestroy
+Trigger: Called just before Angular destroys the component/directive.
+Purpose: Unsubscribe from observables, detach event listeners, and perform necessary cleanup to prevent memory leaks.
+Example: Ensuring proper cleanup of subscriptions, timers, or event handlers to avoid resource leaks.
+
+Important Notes:
+You don't need to implement all of these methods in your components. Use them as needed to handle specific tasks at various points in the component's lifecycle.
+Be mindful of performance implications when using ngDoCheck. If your custom change detection is intensive, consider optimizing your logic or relying on Angular's built-in mechanisms.

@@ -1,0 +1,24 @@
+<app-header [count]="c"></app-header>
+<h1>Products</h1>
+<div>
+  <input type="text" [(ngModel)]="st" (input)="search()"><button id="search" (click)="search()">🔍</button>
+  <div class="fileters">
+    <button (click)="all()">All</button>
+    <button (click)="filters($event)">smartphones</button>
+    <button (click)="filters($event)">laptops</button>
+    <button (click)="filters($event)">skincare</button>
+  </div>
+</div>
+
+
+<div class="products">
+  
+  <div class="product" *ngFor="let p of products;let in = index">
+    <img src={{p.thumbnail}} alt={{p.title}} style="height: 100px;width: 100px;">
+    <h2>{{p.title}}</h2>
+    <p>Category: <strong>{{p.category}}</strong></p>
+    <p>Price: <strong>{{p.price | currency:"INR"}}</strong></p>
+    <p>Rating: {{p.rating}}/5</p>
+    <button (click)="add()">Add To cart</button>
+  </div>
+</div>

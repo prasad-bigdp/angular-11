@@ -1,0 +1,15 @@
+header
+{
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    gap: 20px;
+}
+button
+{
+    padding: 10px;
+    background-color: aliceblue;
+    color: black;
+}

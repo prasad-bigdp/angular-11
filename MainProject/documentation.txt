@@ -1,0 +1,3 @@
+1. start the application by command ng new ecommerce  --standalone=false in terminal.
+2. note down all the components you needed and create them by using ng g c component-name
+3. create the services also by ng g s service-name

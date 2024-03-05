@@ -1,0 +1,9 @@
+.box
+{
+    background-color: aqua;
+    height: 200px;
+    width: 200px;
+    box-shadow: 5px 5px 5px black;
+    padding: 20px;
+    margin: 20px;
+}

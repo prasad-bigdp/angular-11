@@ -1,0 +1,39 @@
+<h1>Demo to explain ngIf</h1>
+
+<button (click)="fun()">change</button>
+<!--
+  ngIf
+  <div *ngIf="value">content</div>
+  ngIf - Else
+  <div *ngIf="value else c1">chjhchj</div>
+<ng-template #c1>
+  <button>❎</button>
+  <p>Hello {{name}}</p>
+</ng-template>
+-->
+<div *ngIf="isShekhar then c1 else c2">
+</div>
+<ng-template #c1>
+  <button>❎</button>
+  <p>Hello {{name}}</p>
+</ng-template>
+<ng-template #c2>
+ <p>Hello Everyone</p> 
+</ng-template>
+
+<input type="text" [(ngModel)]="value">
+{{value}}
+<div [ngSwitch]="value">
+  <p *ngSwitchCase='0'>Sunday</p>
+  <p *ngSwitchCase='1'>Monday</p>
+  <p *ngSwitchCase='2'>Tuesday</p>
+  <p *ngSwitchDefault="">Wrong Input</p>
+</div>
+
+
+
+
+
+
+
+

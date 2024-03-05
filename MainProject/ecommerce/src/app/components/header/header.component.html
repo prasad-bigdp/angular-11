@@ -1,0 +1,20 @@
+<header class="container-fluid bg-black d-flex justify-space-between text-white w-100 align-items-center">
+  <div>
+   <a routerLink="/"><img src="https://includeability.gov.au/sites/default/files/2021-08/Kmart_Flat_MASTERBRAND_CMYK_800.jpg" alt=""
+    class="h-25 w-25"></a>
+  </div>
+
+     <ul class="d-flex justify-space-between align-items-center w-100 list-unstyled gap-2">
+        <li><a routerLink="/" class="text-white text-decoration-none" >Home</a></li>
+        <li><a routerLink="/about" class="text-white text-decoration-none">About</a></li>
+        <li><a routerLink="/products" class="text-white text-decoration-none">Products</a></li>
+        <li><a routerLink="/contact" class="text-white text-decoration-none">Contact</a></li>
+     </ul>
+
+  <div>
+    <a routerLink="cart"><i class="bi bi-cart text-white"></i></a><span id="count">{{c}}</span>
+  </div>
+  <div>
+    <button class="btn btn-primary"><a routerLink="/login" class="text-white text-decoration-none">Login</a></button>
+  </div>
+</header>

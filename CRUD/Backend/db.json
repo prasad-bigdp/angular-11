@@ -1,0 +1,20 @@
+{
+  "books": [
+    {
+      "id": "4",
+      "title": "something4",
+      "image": "https://cdn.dummyjson.com/product-images/1/thumbnail.jpg"
+    },
+    {
+      "id": "5",
+      "title": "abc",
+      "image": "https://cdn.dummyjson.com/product-images/3/thumbnail.jpg"
+    },
+    {
+      "id": "12",
+      "title": "laptop",
+      "image": "https://cdn.dummyjson.com/product-images/6/thumbnail.png"
+    }
+  ],
+  "movies": []
+}

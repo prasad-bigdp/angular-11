@@ -1,0 +1,185 @@
+In my application, i want login , signup, signup with google etc..,
+Authentication: it means confirming whether the user is what he claims to be or not?
+Authorization: it means whether the user is allowed/permitted to do it or not? role based authentication is one way to perform authorization
+
+let's implement authentication in Firebase:
+
+1. Project Setup:
+
+Make sure you have an Angular project set up and Firebase project with authentication enabled (refer to previous guides if needed).
+
+2. Install Dependencies:
+
+npm install firebase @angular/fire 
+Use code with caution.
+3. Import Modules:
+
+In your app.module.ts:
+
+TypeScript
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms'; // For template-driven forms
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { RouterModule, Routes } from '@angular/router'; // For routing
+
+import { AppComponent } from './app.component';
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
+// ... other imports
+
+const appRoutes: Routes = [
+  { path: 'login', component: LoginComponent },
+  { path: 'signup', component: SignupComponent },
+  // ... other routes
+  { path: '', redirectTo: '/login', pathMatch: 'full' }, // Default route
+];
+
+@NgModule({
+  // ...
+  imports: [
+    BrowserModule,
+    FormsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAuthModule,
+    RouterModule.forRoot(appRoutes)
+  ],
+  // ...
+})
+export class AppModule {}
+Use code with caution.
+4. Create Authentication Service:
+
+TypeScript
+// auth.service.ts
+
+import { Injectable } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { Router } from '@angular/router';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class AuthService {
+  constructor(private auth: AngularFireAuth, private router: Router) {}
+
+  async signup(email: string, password: string) {
+    try {
+      const userCredential = await this.auth.createUserWithEmailAndPassword(email, password);
+      return userCredential;
+    } catch (error) {
+      console.error('Signup error:', error.message);
+      throw new Error(error.message);
+    }
+  }
+
+  async login(email: string, password: string) {
+    try {
+      const userCredential = await this.auth.signInWithEmailAndPassword(email, password);
+      return userCredential;
+    } catch (error) {
+      console.error('Login error:', error.message);
+      throw new Error(error.message);
+    }
+  }
+
+  async logout() {
+    await this.auth.signOut();
+    this.router.navigate(['/login']); // Redirect to login after logout
+  }
+}
+Use code with caution.
+5. Create Components and Templates:
+
+Login Component (login.component.ts):
+
+TypeScript
+import { Component } from '@angular/core';
+import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
+
+@Component({
+  selector: 'app-login',
+  templateUrl: './login.component.html'
+})
+export class LoginComponent {
+  email = '';
+  password = '';
+  error = '';
+
+  constructor(private authService: AuthService, private router: Router) {}
+
+  async login() {
+    try {
+      await this.authService.login(this.email, this.password);
+      this.router.navigate(['/home']); // Redirect to home after successful login
+    } catch (error) {
+      this.error = error.message; // Display error message
+    } finally {
+      // Reset form (optional)
+      this.email = '';
+      this.password = '';
+    }
+  }
+}
+Use code with caution.
+Login Template (login.component.html):
+
+HTML
+<form (ngSubmit)="login()">
+  <input type="email" name="email" [(ngModel)]="email" required>
+  <input type="password" name="password" [(ngModel)]="password" required>
+  <button type="submit" [disabled]="!email || !password">Login</button>
+  <span *ngIf="error">{{ error }}</span> </form>
+
+  Signup Component (signup.component.ts):
+
+TypeScript
+import { Component } from '@angular/core';
+import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
+
+@Component({
+  selector: 'app-signup',
+  templateUrl: './signup.component.html'
+})
+export class SignupComponent {
+  email = '';
+  password = '';
+  error = '';
+
+  constructor(private authService: AuthService, private router: Router) {}
+
+  async signup() {
+    try {
+      await this.authService.signup(this.email, this.password);
+      this.router.navigate(['/home']); // Redirect to home after successful signup
+    } catch (error) {
+      this.error = error.message; // Display error message
+    } finally {
+      // Reset form (optional)
+      this.email = '';
+      this.password = '';
+    }
+  }
+}
+Use code with caution.
+Signup Template (signup.component.html):
+
+HTML
+<form (ngSubmit)="signup()">
+  <input type="email" name="email" [(ngModel)]="email" required>
+  <input type="password" name="password" [(ngModel)]="password" required>
+  <button type="submit" [disabled]="!email || !password">Signup</button>
+  <span *ngIf="error">{{ error }}</span> </form>
+Use code with caution.
+6. Run the Application:
+
+Start the development server using ng serve. Access the login and signup pages using the configured routes (e.g., http://localhost:4200/login and http://localhost:4200/signup).
+
+Remember:
+
+This is a basic implementation and needs further enhancements for a production-ready application.
+Consider implementing additional error handling and input validation.
+Always follow security best practices for user credentials and authentication.

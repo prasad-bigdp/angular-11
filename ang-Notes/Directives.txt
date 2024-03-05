@@ -1,0 +1,31 @@
+Directives are used to create,update,manipulate the DOM Dynamiccaly.
+
+There are three types of Directives
+1. Structural Directives
+
+Structural Directives Works with conditions, Based on Condition, it updates the DOM elements
+we have three Structural Directives.
+
+   i. ngIf :
+    this is used to update the DOM either if case or else case based on a condition
+   ii.ngSwitch
+   iii.ngFor:
+   //html
+   <div *ngFor="let p of products" class="product">
+  <img src={{p.url}} alt={{p.title}}>
+  <h2>{{p.title}}</h2>
+  <p>{{p.price}}</p>
+</div>
+//ts
+products=[ {
+      title: 'samsung s23',
+      price: 250,
+      url: 'https://images.samsung.com/is/image/samsung/levant-galaxy-note10-plus-n975-sm-n975fzsdmid-backauraglow-thumb-182079707?$344_344_PNG',
+    }];
+
+    task: create an array of food/movie objects and show them in template using ngFor
+2. Property Directives:
+property directives are used to define properties such as class and style based on condition
+
+
+3. Custom Directives

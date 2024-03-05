@@ -1,0 +1,29 @@
+Data binding:
+The transmission of Data from component to template or Template to Component or both
+Angular supports one way and two way data binding
+i. one way data binding:
+   a. Component to Template:
+     1. string interpolation: it is a way of getting data from component to template as a string
+     we will do it by {{}}(double flower brackets)
+     2.property Binding:
+     it is also another way of sending data from component to template but it won't send data as string.
+     we will do it using square brackets []
+   b. from template to component
+     this is called Event Binding. it is used to send data from template to component
+     we will achieve this by paranthesis '()'
+
+     Task1: in template print count value from component and on click of button in template, value of count should increase
+     Task2: In your counter, on top right print a flag value which shows even/odd based on the value of counter
+     Hint: i use ternary operator
+
+     Two-way Data Binding:
+      Two way data binding means data should be sent from component to template and template to component at a time
+
+      we will achieve two way data binding by ngModel with like this "[(ngModel)]
+
+      steps:
+      syntax:<input [(ngModel)]="variable">, u will write variable in ts file(component file).
+      To make ngModel work , import FormsModule in app.module.ts and write it in its imports
+
+      Task3:
+      create a simple form with email and password and a button and print email and password immediately when we type and also show alert "successsfully login" when click on button

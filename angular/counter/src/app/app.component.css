@@ -1,0 +1,21 @@
+h1{text-align: center;}
+.counter{
+    height: 50vh;
+    width: 50vw;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.count{font-size: 48px;}
+button{
+    background-color: black;
+    color: white;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 10px;
+}
+button:disabled{
+    background-color: red;
+}

@@ -1,0 +1,18 @@
+pipes are used to filter out the data.
+it means pipes will take data as input and return the new data as output before the view
+There are types of pipes
+ data | pipe-name
+1. Default/prebuilt pipes:
+There are so many prebuilt pipes. Most used are:
+  i.uppercase -- it converts given data into uppercase
+  ii.lowercase -- it converts given data into lowercase
+  iii. currency -- it converts given into currency, means it add currency symbol before data, by default $, you can give options
+  pipename:option-name
+  data|currency:"EUR" will convert given data into euros
+  iv.decimal -- it converts given data into decimal values
+  v. date -- it automatically converts given data into date format. we can change format by options
+  vi.json -- it is used to convert given data into json
+  vii.async pipe--> it converts the given data into asynchronous
+2. userdefined/custom pipes:
+you can create pipe using " ng generate pipe pipe-name"
+it create a pipeTransform method

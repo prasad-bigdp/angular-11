@@ -1,0 +1,15 @@
+.products
+{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+}
+.product
+{
+    height: 400px;
+    width: 250px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 5px 5px 5px black;
+}

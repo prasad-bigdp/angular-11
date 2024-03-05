@@ -1,0 +1,30 @@
+header img
+{
+    height: 100px;
+    width: 100px;
+}
+header
+{
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+ul 
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+li
+{
+    list-style-type: none;
+}
+a
+{
+    text-decoration: none;
+    color: white;
+}

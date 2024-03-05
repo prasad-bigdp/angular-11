@@ -1,0 +1,10 @@
+<div class="items">
+    <div class="item" *ngFor="let i of items;let in=index" ngClass="d-flex justify-space-between align-items-center">
+     <img src={{i.thumbnail}} alt={{i.title}} height="20" width="20">
+     <h3>{{i.title}}</h3>
+     <button class="btn btn-danger" (click)="removeItem(in)">❎</button>
+    </div>
+    <div>Total: {{total |currency:"INR"}}
+    </div>
+    <button class="btn btn-success">Checkout</button>
+</div>

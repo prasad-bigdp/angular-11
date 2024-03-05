@@ -1,0 +1,2 @@
+routing means navigation between components, Each component can have specified path or a child or routing path.
+Angular provides single page applications means when routing happens , pay loading may not be needed

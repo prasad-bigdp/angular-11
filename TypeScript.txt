@@ -1,0 +1,97 @@
+TypeScript:
+
+To install TS, you need to install npm first(nodejs) 
+check version of npm by "npm -v"
+install command:  npm install -g typescript
+check the version: "tsc -v"
+
+---->every browser will have one engine to run/interpret js
+eg:google chrome-->v8,firefox--->spiderMonkey
+
+-->any browser cannot understand ts. so u need a compiler which converts ts into js.The compiler is typescript compiler , also called as "tsc"
+In VS code, always try to prefer command prompt
+compile command: 1. npx tsc --init   , it will create tsconfig.json which sets rules while converting ts into js
+2. npx tsc filename/. which will create js file
+
+
+Typescript data types:
+Typescript follows two methods for data type declarations
+1. Type Annotations: it means we declare data type followed by : , after the variable
+2.Type Interference: it means typescript can guess the data type based on initial value
+
+Data types:
+number,string,boolean,undefined,null,void,tuple,any,
+enum: enum is a data type given to constant value(a set of constants)
+never: never is data type which defines the situation/function that never should run
+union( | )==> used to define multiple data types 
+any means it is allowed to take any data type
+
+Task1: create a variable "name" which accepts number or string and create a variable value which accepts any data type and print their types in console
+
+let s:number|string="raju";
+let w:any=321;
+console.log(typeof s)
+console.log(typeof w)
+
+Task2: create an array which accepts strings and numbers only
+
+Tuple: tuple is used when we need to declare data types for individual array elements;
+let arr:[number|string,any]=["",true];
+
+Function: every function need to define it parameters and return type
+
+void is used to defined a function return type when the function is not returning anything
+
+In function parameters you can give optional parameters  by using '?' and you can even define default value using parameter=value
+
+We represents objects in two ways
+1. Interfaces
+interface is user defined data type specifically for objects
+
+interface myObj{
+    name:string,
+    age:number
+}
+
+2.type alias
+type x=number|string|boolean;
+let a:x="ghj"
+
+//access modifiers
+it means how access will be given to the following elements
+Public - it can accessed by any class,Private - it cannot be accessed by any class except its own,Protected - it can accessed itself and its children
+
+readonly,static keywords
+
+modules-- ES6
+import and export are keywords in ES6
+
+Type Assertion: sometimes type interferance will not work correct , so at that times we define value as our known data type
+
+Yesterday we discussed,never,enum,interfaces,type alias,class implementation,access modifiers,access specifiers,type Assertion
+
+Advanced Topics:
+Generics: Generics are used to define general dat type which can be named while invoking class/function
+
+function fun<P>(a:P):P{}
+fun<number>(2)
+
+Declaration Files:
+if i'm using any third party libraries, we use declaration files to define data types for 3rd party code
+
+it's extension is .d.ts
+
+namespaces:namespaces are used to group your functionalities. it works while exporting from one file to another file.
+
+Decorators: always we use @ before a  decorator
+
+
+
+
+
+
+
+
+
+
+

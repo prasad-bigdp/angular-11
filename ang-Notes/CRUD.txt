@@ -1,0 +1,38 @@
+API: Application Programming Interface. API are used to transmit data or service. 
+For FrontEnd Application, to access database, servers create an API which have serveral endpoints
+Eg: https://www.fakestoreapi.com is API URL
+we have '/products' at the end of API URL, we may get data or service.its called endpoints
+An API request typically contains three things
+HEAD-->authorization
+BODY--->response
+METHOD --> the way request sent, there are 4 main methods, get(read),post(create),delete(remove),put(update)
+
+API of 3rd party is called black box API
+To start CRUD, we need a server and a database
+step 1 : create db.json in backend folder and give data
+step2: goto terminal specific folder and follow the below command
+
+npm install -g json-server
+step3: run the server and database by "json-server db.json --watch" command
+
+step 4: create a frontend folder and initiate angular application "ng new app-name --standalone=false"
+
+step5: create a service by command "ng generate service service-name"
+step6: import httpClientModule in module file and inject httpClient in Service File.
+step 7:
+write get,post,put,delete repspective Methods in service and inject the service in component
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

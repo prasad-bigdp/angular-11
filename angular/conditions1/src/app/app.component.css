@@ -1,0 +1,15 @@
+button
+{
+    background-color: black;
+    color: white;
+    padding: 1rem;
+    border-radius: 15px;
+}
+.modal{
+    position: absolute;
+    background-color: aqua;
+    top: 20%;
+    display: flex;
+    justify-content: center;
+    z-index: 5;
+}

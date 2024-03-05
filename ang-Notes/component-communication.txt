@@ -1,0 +1,40 @@
+Component: Component is the logical division of User Interface.
+Each component will have 4 files
+1. component.ts(component)
+2.component.html(template)
+3.component.css(styling)
+4.component.spec.ts(testing)
+
+Every component have a name called selector. wherever you mention selector, there the component appears.
+
+one component inside another component called as nesting of components
+container components called as parent component, inner components called as child component
+
+To create component follow below command: ng generate component component-name
+
+Component Communication: one component can send data to another component.
+There are three ways to achieve it.
+1. parent to child
+2. child to parent
+3. component to component
+
+1. parent to child:
+parent component send the data to child as properties and child will receive as @Input()
+
+//parent-component.html
+<app-child title="xyz"></app-child>
+
+//child-component.ts
+@Input() title;
+
+2. child to parent:
+child component to parent component communication can be done in three ways
+1.@output():
+
+2.@viewChild()
+3.template reference variable
+
+
+
+
+

@@ -1,0 +1,11 @@
+Services are used for common Data
+How components get data from Services:
+Dependency Injection: it is design pattern which creates a new instance of parent values in the child so that if parent changes the values also child will not get affected.
+how to do dependency injection in angular?
+we will inject the service in the parameters of constructor
+
+For the API, you need to use default service httpClient
+First goto module and import httpClientModule and write it in imports
+second goto service and inject httpClient
+
+httpClient return Observable, it means mutiple promises, u will resolve it by subscribe

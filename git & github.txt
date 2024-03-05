@@ -1,0 +1,20 @@
+Git is an application which needs to be download and install, which is used to track version.. it is a version control system
+https://git-scm.com/downloads
+windows>64-bit
+after installing check git -v
+"https://github.com/prasad-bigdp/angular-11"
+Github is just a online code storage like gdrive. u can also use bitbucket,gitlab,aws.
+
+step1:  download git from https://git-scm.com/downloads and install it and check the version by "git -v" in cmd
+step2: create github account
+step3: go to visual studio code and login into github
+step4: setup configs in vscode
+git config --global user.email "youremail" 
+git config --global user.name "username" 
+
+steps:
+1:git init
+2. git add .
+3. git commit -m "update"
+4. git remote add origin "link"
+5. git push -u origin main

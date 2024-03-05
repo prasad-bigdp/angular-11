@@ -1,0 +1,195 @@
+Angular provides two kinds of Forms 
+1. template driven forms
+2. reactive forms
+
+Template Driven forms are default forms in-built in angular, They were implemented in template
+
+when we write ngModel to any input element, it create an instance of FormControl and it will give default values like
+dirty:
+pristine:
+valid:
+invalid:
+touched: if you just touch/activate the input once then touched will become true
+untouched:if touched is true and untouched is false
+errors:
+
+
+
+
+
+
+
+
+In Angular, ngForm and ngModel are directives provided by the Angular Forms module. They are used to work with forms and manage form-related functionality. Let's understand each directive:
+
+ngForm Directive:
+The ngForm directive is used to create and manage a form in Angular. It is a structural directive that is typically applied to a <form> element. When you apply ngForm to a form, Angular creates a FormGroup instance that represents the form and provides various features for handling form controls, validation, and submission.
+
+Usage example:
+
+<form #myForm="ngForm">
+  <!-- Form controls go here -->
+</form>
+In the example above, #myForm="ngForm" creates a reference to the form and binds it to the ngForm directive. This allows you to access the form's properties and methods in your component.
+
+ngModel Directive:
+The ngModel directive is used for two-way data binding with form controls. It binds the value of an HTML control (like <input>, <select>, or <textarea>) to a property in the component class. This enables you to both display the initial value of the control and update the component property when the user interacts with the control.
+
+Usage example:
+
+<input type="text" id="username" name="username" ngModel #username="ngModel" required minlength="3" />
+In this example, ngModel is applied to the <input> element, and #username="ngModel" creates a reference to the ngModel directive. The ngModel directive provides properties like valid, touched, and errors, which can be used for validation and to give feedback to the user.
+
+Combined Usage:
+<form #myForm="ngForm" (ngSubmit)="onSubmit()">
+  <label for="username">Username:</label>
+  <input type="text" id="username" name="username" ngModel #username="ngModel" required minlength="3" />
+  <!-- ... other form controls ... -->
+  <button type="submit" [disabled]="!myForm.form.valid">Submit</button>
+</form>
+In this example, the ngForm directive is applied to the <form> element, and the ngModel directive is applied to the <input> element. The form is bound to the myForm variable, and individual form controls are bound to properties like username using ngModel. The (ngSubmit) event binding is used to handle the form submission.
+
+In summary, ngForm is used to create and manage the entire form, while ngModel is used for individual form controls to enable two-way data binding and access control-related properties. They are essential tools for working with forms in Angular applications.
+
+While both ngModelGroup and ngForm are used for managing forms in Angular, they serve slightly different purposes.
+
+ngForm Directive:
+The ngForm directive is a structural directive applied to a <form> element to create and manage the entire form.
+It is used to create an instance of FormGroup that represents the form and provides features for handling the form as a whole, including form-level validation and submission.
+ngForm is often used to reference the entire form and access its properties and methods in the component class.
+Example:
+<form #myForm="ngForm">
+  <!-- Form controls go here -->
+</form>
+ngModelGroup Directive:
+The ngModelGroup directive is a way to group multiple form controls together within a form.
+It is applied to an HTML element (other than a <form>) and acts as a container for grouping related form controls.
+It is useful when you want to organize form controls into subgroups within the form.
+Example:
+<form>
+  <div ngModelGroup="personalInfo">
+    <input type="text" name="firstName" ngModel placeholder="First Name">
+    <input type="text" name="lastName" ngModel placeholder="Last Name">
+  </div>
+</form>
+In this example, the ngModelGroup directive is used to group the firstName and lastName controls under the personalInfo group.
+
+Summary:
+ngForm is applied to the entire form to manage the form as a whole.
+ngModelGroup is applied to a specific HTML element to group related form controls within the form.
+Both directives are part of the Angular Forms module and contribute to organizing and managing forms effectively.
+In many cases, you might use ngForm for the overall form structure and ngModelGroup to organize controls into logical groups within the form. It depends on the structure and complexity of your form.
+
+ngSubmit is an Angular directive that is used to bind a method or function to the submit event of an HTML form. This directive allows you to handle form submissions in your Angular components.
+
+Here's how ngSubmit is typically used:
+
+HTML Form:
+Apply the ngSubmit directive to the <form> element in your template.
+
+<form (ngSubmit)="onSubmit()">
+  <!-- Form controls go here -->
+  <button type="submit">Submit</button>
+</form>
+Component Class:
+Implement the onSubmit method in your component class. This method will be called when the form is submitted.
+
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-my-form',
+  templateUrl: './my-form.component.html',
+  styleUrls: ['./my-form.component.css']
+})
+export class MyFormComponent {
+  onSubmit() {
+    // Handle form submission logic here
+    console.log('Form submitted!');
+  }
+}
+The (ngSubmit)="onSubmit()" syntax in the template binds the onSubmit method to the submit event of the form. When the user clicks the submit button or presses Enter while focused on a form field, the onSubmit method is invoked.
+
+Using ngSubmit is preferable to using the traditional (submit) event in Angular, especially when dealing with forms, as it allows Angular to intercept the form submission and provides additional features, such as preventing the default form submission behavior and handling the form's validity.
+
+Remember that for ngSubmit to work, you should not use the (submit) event on the form element directly. If you need to perform additional actions or validations, you can still use the (submit) event on the form, but you should prevent the default behavior to avoid interference with Angular's form handling.
+
+In Angular, form validators are used to enforce certain rules or constraints on the input provided by users in a form. Validators can be applied to form controls to ensure that the entered data meets specific criteria. Angular provides both built-in validators and the ability to create custom validators.
+
+Built-in Validators:
+Angular provides a set of built-in validators that you can use out of the box. Here are some common ones:
+
+1. Required Validator:
+Ensures that a form control has a value.
+
+
+<input type="text" name="username" [(ngModel)]="username" required />
+2. Min and Max Length Validators:
+Specifies minimum and/or maximum lengths for a form control.
+
+
+<input type="text" name="password" [(ngModel)]="password" minlength="8" maxlength="20" />
+3. Pattern Validator:
+Validates the input against a regular expression.
+
+<input type="text" name="email" [(ngModel)]="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" />
+4. Email Validator:
+Checks if the input is a valid email address.
+
+<input type="email" name="email" [(ngModel)]="email" />
+5. Custom Validator (Example):
+You can create custom validators to implement your own validation logic. Here's a simple example:
+
+import { AbstractControl, ValidatorFn } from '@angular/forms';
+
+export function forbiddenNameValidator(forbiddenName: RegExp): ValidatorFn {
+  return (control: AbstractControl): { [key: string]: any } | null => {
+    const forbidden = forbiddenName.test(control.value);
+    return forbidden ? { 'forbiddenName': { value: control.value } } : null;
+  };
+}
+Use it in your component:
+
+
+import { forbiddenNameValidator } from './forbidden-name.validator';
+
+this.myForm = this.fb.group({
+  username: ['', [Validators.required, forbiddenNameValidator(/admin/)]],
+});
+And in your template:
+
+
+<input type="text" name="username" formControlName="username" />
+<div *ngIf="myForm.get('username').hasError('forbiddenName')">Username contains forbidden word.</div>
+Validation in Reactive Forms:
+For reactive forms, you define validators when creating the form controls programmatically:
+
+
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
+// ...
+
+this.myForm = this.fb.group({
+  username: ['', [Validators.required, Validators.minLength(3)]],
+  email: ['', [Validators.required, Validators.email]],
+  password: ['', [Validators.required, Validators.minLength(6)]],
+});
+Handling Validation in the Template:
+
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()">
+  <label for="username">Username:</label>
+  <input type="text" id="username" formControlName="username" />
+  <div *ngIf="myForm.get('username').hasError('required') && myForm.get('username').touched">
+    Username is required.
+  </div>
+  <div *ngIf="myForm.get('username').hasError('minlength') && myForm.get('username').touched">
+    Username must be at least 3 characters.
+  </div>
+
+  <!-- Similar validations for other fields -->
+
+  <button type="submit" [disabled]="!myForm.valid">Submit</button>
+</form>
+In the template, you can use the hasError method of the form control to check for specific errors and display error messages accordingly.
+
+This is a basic overview of form validation in Angular. Depending on your specific requirements, you may need to use different combinations of validators and create custom validators to handle complex validation scenarios.
+

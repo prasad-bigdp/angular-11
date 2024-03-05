@@ -1,0 +1,16 @@
+1. Typescript
+2. Git & Github
+3. Angular Install & folder Structure
+4. Data Binding-->string interpolation,property binding,event binding,two data binding
+5. Component communication-->@Input,@output,viewchild,template reference variable
+6. Directives- structural--ngIf,ngSwitch,ngFor,property-ngClass,ngStyle, custom 
+7.pipes-default,custom
+8.Services-httpClient
+9.CRUD(json-server)
+10.routing(auth guard)
+11.lifecycle methods
+12.Forms(Template-driven)
+13.Forms(Reactive)
+14.Authentication(Firebase)
+15.Main project(Rxjs,custom directives,async pipe)
+16.Interview Q&A

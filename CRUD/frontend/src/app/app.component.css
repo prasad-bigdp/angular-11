@@ -1,0 +1,42 @@
+.books
+{
+   display: grid;
+   grid-template-columns: repeat(3,auto);
+   gap: 20px;
+}
+.book img
+{
+   height: 200px;
+   width: 200px;
+  
+}
+.book
+{
+     display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+    box-shadow: 5px 5px 5px black;
+}
+button
+{
+    background-color: black;
+    color: white;
+    padding: 10px;
+    border-radius: 15px;
+    margin: 20px;
+}
+.myForm
+{
+   position: absolute;
+   background-color: aqua;
+   top: 30%;
+   left: 40%;
+   z-index:2;
+   padding: 50px;
+}
+.myForm input
+{
+   background-color: white;
+   color: black;
+}

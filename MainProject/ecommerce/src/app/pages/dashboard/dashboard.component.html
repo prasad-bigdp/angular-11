@@ -1,0 +1,8 @@
+<h2>Hello {{name}}</h2>
+<button (click)="logout()">logout</button>
+<p>MyOrders:</p>
+<div class="orders">
+    <div class="or" *ngFor="let i of myOrders">
+    <p>{{i.title}}</p>
+    </div>
+</div>
