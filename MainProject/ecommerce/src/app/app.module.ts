@@ -12,8 +12,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFireModule } from '@angular/fire/compat';
 import { firebaseConfig } from './environments/environments';
+import { PrasadDirective } from './prasad.directive';
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, FooterComponent],
+  declarations: [AppComponent, HeaderComponent, FooterComponent, PrasadDirective],
   imports: [
     BrowserModule,
     AppRoutingModule,
